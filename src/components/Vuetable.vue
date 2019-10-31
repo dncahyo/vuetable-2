@@ -48,6 +48,7 @@
                     :vuetable="vuetable"
                     :class="bodyClass('vuetable-component', field)"
                     :style="{width: field.width}"
+                    :data-field-title="field.dataTitle || field.title"
                     @vuetable:field-event="onFieldEvent"
                   ></component>
                 </template>
@@ -55,6 +56,7 @@
                   <td :class="bodyClass('vuetable-slot', field)"
                     :key="fieldIndex"
                     :style="{width: field.width}"
+                    :data-field-title="field.dataTitle || field.title"
                   >
                     <slot :name="field.name"
                       :row-data="item" :row-index="itemIndex" :row-field="field"
@@ -65,6 +67,7 @@
                   <td :class="bodyClass('vuetable-td-'+field.name, field)"
                     :key="fieldIndex"
                     :style="{width: field.width}"
+                    :data-field-title="field.dataTitle || field.title"
                     v-html="renderNormalField(field, item)"
                     @click="onCellClicked(item, itemIndex, field, $event)"
                     @dblclick="onCellDoubleClicked(item, itemIndex, field, $event)"
